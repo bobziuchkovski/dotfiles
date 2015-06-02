@@ -37,16 +37,6 @@ function mark_position(pos)
   return marker
 end
 
-function set_shade(percent)
-  if not shade then
-    shade = hs.drawing.rectangle(hs.screen.mainScreen():fullFrame())
-  end
-  shade:setFill(true)
-  shade:setFillColor({['red']=0.0, ['green']=0.0, ['blue']=0.0, ['alpha']=percent})
-  shade:show()
-  shade:bringToFront()
-end
-
 -- Toggle named app's visibility, launching if needed
 function toggle_app(name)
   focused = hs.window.focusedWindow()
@@ -213,5 +203,3 @@ hs.hotkey.bind(mash, 'u', flash_utc)
 hs.hotkey.bind(mash, 'y', hs.toggleConsole)
 hs.hotkey.bind(mash, '.', hs.hints.windowHints)
 hs.hotkey.bind(mash, 'l', hs.caffeinate.startScreensaver)
-
-hs.hotkey.bind(mash, '/', function() set_shade(0.5) end)
